@@ -1,0 +1,16 @@
+# Admin password hash — created on first run, never commit it
+config/admin.json
+
+# Local scratch
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Vercel
+.vercel/
+node_modules/

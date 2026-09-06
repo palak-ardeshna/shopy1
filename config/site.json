@@ -1,0 +1,14 @@
+{
+  "site_name": "trinaya.shop",
+  "tagline": "Market Place, E-Commerce, Buy new fashion",
+  "description": "trinaya.shop Market Place deal in daily new arriving new fashions in men and women.",
+  "keywords": "shopping, affordable, kurti, suits, fashion, men, women",
+  "currency": "\u20b9",
+  "email": "support@trinaya.shop",
+  "phone": "+91 90000 00000",
+  "address": "Surat, Gujarat, India",
+  "products_per_page_home": 10,
+  "products_per_page_category": 4,
+  "related_products_count": 8,
+  "theme_color": "indigo"
+}

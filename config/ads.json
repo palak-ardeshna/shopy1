@@ -1,0 +1,51 @@
+{
+  "_comment": "Ad slots by position. type: adsense | gpt | gpt_interstitial | gpt_anchor | html. Set enabled=false to switch a slot off without deleting it.",
+  "network": {
+    "adsense_client": "ca-pub-0000000000000000",
+    "gam_network_code": "00000000000"
+  },
+  "positions": {
+    "global_top": [
+      { "enabled": true, "type": "label", "text": "Advertisements" },
+      { "enabled": true, "type": "adsense_loader" },
+      { "enabled": true, "type": "gpt", "slot": "LE_add_to_cart", "sizes": [[336,280],[320,100],[300,250],[320,480],[300,600],[320,50]], "div": "gpt-top-1", "min_width": 300, "min_height": 250 },
+      { "enabled": true, "type": "gpt_interstitial", "slot": "LE_INTER" },
+      { "enabled": true, "type": "gpt_anchor", "slot": "LE-ANCHOR" }
+    ],
+    "global_pixels": [
+      { "enabled": false, "type": "meta_pixel", "id": "000000000000000" },
+      { "enabled": false, "type": "snap_pixel", "id": "00000000-0000-0000-0000-000000000000" },
+      { "enabled": false, "type": "ga4", "id": "G-XXXXXXXXXX" }
+    ],
+    "home_below_grid": [
+      { "enabled": true, "type": "gpt", "slot": "LE_add_to_cart", "sizes": [[300,250],[336,280],"fluid"], "div": "gpt-home-grid", "min_width": 300, "min_height": 250 }
+    ],
+    "category_below_grid": [
+      { "enabled": true, "type": "gpt", "slot": "LE_add_to_cart", "sizes": [[300,250],[336,280],"fluid"], "div": "gpt-cat-grid", "min_width": 300, "min_height": 250 }
+    ],
+    "product_above_add_to_cart": [
+      { "enabled": true, "type": "gpt", "slot": "LE_add_to_cart", "sizes": [[250,250],[250,360],"fluid"], "div": "gpt-pdp-atc", "min_width": 300, "min_height": 250 }
+    ],
+    "product_below_description": [
+      { "enabled": false, "type": "gpt", "slot": "LE_add_to_cart", "sizes": [[300,250],"fluid"], "div": "gpt-pdp-desc", "min_width": 300, "min_height": 250 }
+    ],
+    "cart_above_checkout_btn": [
+      { "enabled": true, "type": "gpt", "slot": "LE-CHECK-001", "sizes": [[250,250],[250,360],"fluid"], "div": "gpt-cart-above", "min_width": 300, "min_height": 250 }
+    ],
+    "cart_below_checkout_btn": [
+      { "enabled": false, "type": "gpt", "slot": "LE-CHECK-001", "sizes": [[300,250],"fluid"], "div": "gpt-cart-below", "min_width": 300, "min_height": 250 }
+    ],
+    "checkout_above_form": [
+      { "enabled": true, "type": "gpt", "slot": "LE-CHECK-001", "sizes": [[250,250],[250,360],"fluid"], "div": "gpt-co-form", "min_width": 300, "min_height": 250 }
+    ],
+    "checkout_above_button": [
+      { "enabled": true, "type": "gpt", "slot": "LE-CHECK-001", "sizes": [[250,250],[250,360],"fluid"], "div": "gpt-co-above", "min_width": 300, "min_height": 250 }
+    ],
+    "checkout_below_button": [
+      { "enabled": false, "type": "gpt", "slot": "LE-CHECK-001", "sizes": [[300,250],"fluid"], "div": "gpt-co-below", "min_width": 300, "min_height": 250 }
+    ],
+    "thanks_below_continue": [
+      { "enabled": true, "type": "gpt", "slot": "LE_add_to_cart", "sizes": [[250,250],[250,360],"fluid"], "div": "gpt-thanks", "min_width": 300, "min_height": 250 }
+    ]
+  }
+}

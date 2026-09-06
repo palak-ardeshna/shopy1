@@ -1,0 +1,61 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+
+RewriteEngine On
+
+# --- Protect data and config -------------------------------------------------
+# products.json is the whole catalogue; orders/messages hold customer data.
+RewriteRule ^(config|data|includes)/ - [F,L]
+RewriteRule ^products/products\.json$ - [F,L]
+
+# --- Clean URLs --------------------------------------------------------------
+
+# Home pagination:  /page/3
+RewriteRule ^page/([0-9]+)/?$ index.php?page=$1 [L,QSA]
+
+# Category:  /category/ZAVIRA_VOGUE  and  /category/ZAVIRA_VOGUE/2
+RewriteRule ^category/([^/]+)/([0-9]+)/?$ category/view.php?cat=$1&page=$2 [L,QSA]
+RewriteRule ^category/([^/]+)/?$          category/view.php?cat=$1        [L,QSA]
+
+# Product:  /products/43/Floral-Printed-Designer-Kurti
+RewriteRule ^products/([0-9]+)(?:/([^/]*))?/?$ products/view.php?id=$1&url=$2 [L,QSA]
+
+# Cart / checkout / confirmation
+RewriteRule ^cart/?$                cart/view.php          [L,QSA]
+RewriteRule ^cart/view/?$           cart/view.php          [L,QSA]
+RewriteRule ^checkout/?$            checkout/full-name.php [L,QSA]
+RewriteRule ^checkout/full-name/?$  checkout/full-name.php [L,QSA]
+RewriteRule ^confirm/thanks/?$      confirm/thanks.php     [L,QSA]
+
+# Extensionless static pages:  /pages/about-us
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^(pages/[A-Za-z0-9_-]+)/?$ $1.php [L,QSA]
+
+# Anything else that exists as a .php file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([^.]+?)/?$ $1.php [L,QSA]
+
+# --- Caching -----------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png  "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css   "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
+
+# --- Security headers --------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+ErrorDocument 404 /404.php

@@ -1,0 +1,3 @@
+# Dropped into config/ and data/ as a second line of defence when
+# the root .htaccess rules are not active (e.g. AllowOverride limits).
+Require all denied
