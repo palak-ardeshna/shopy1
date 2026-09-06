@@ -1,0 +1,18 @@
+# Keep the serverless bundle small — vercel-php uploads the whole project
+# directory into the Lambda, and AWS caps it at 250 MB uncompressed.
+.git
+.github
+.vercel
+node_modules
+
+# Local-only: Apache and the built-in-server front controller are unused on
+# Vercel, which routes through api/index.php instead.
+router.php
+.htaccess
+config/.htaccess
+data/.htaccess
+includes/.htaccess
+
+README.md
+*.log
+*.tmp
