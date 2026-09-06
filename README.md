@@ -52,6 +52,15 @@ in `vercel.json`. Every request that is not a static asset goes to
 4. **Environment Variables** → add `ADMIN_PASSWORD` with the password you want
    for `/admin/`. Deploy.
 
+If a deploy misbehaves, `/?__diag=1` reports the PHP version, resolved paths and
+which project files actually made it into the Lambda bundle. Setting `APP_DEBUG=1`
+in the environment variables prints the real PHP error instead of Vercel's
+generic crash page.
+
+`.vercelignore` keeps `.git`, `node_modules` and the Apache / `php -S` front
+controllers out of the upload: the PHP runtime copies the whole project
+directory into the Lambda, and AWS caps that at 250 MB uncompressed.
+
 ### What "demo" means here
 
 Vercel is serverless: the deployment is read-only and each instance gets a

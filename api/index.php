@@ -5,11 +5,11 @@
  * local server and this file cannot drift apart.
  */
 
-// Surface PHP errors in the response. Vercel otherwise swallows a fatal and
-// shows only its generic "This Serverless Function has crashed" page, which
-// says nothing about the cause. Set APP_DEBUG=0 in the project's environment
-// variables to hide them again once the deployment is healthy.
-$debug = getenv('APP_DEBUG') !== '0';
+// Vercel swallows a fatal and shows only its generic "This Serverless Function
+// has crashed" page, which says nothing about the cause. Set APP_DEBUG=1 in the
+// project's environment variables to print the actual error instead; errors go
+// to the Vercel runtime log either way.
+$debug = getenv('APP_DEBUG') === '1';
 ini_set('display_errors', $debug ? '1' : '0');
 ini_set('log_errors', '1');
 error_reporting(E_ALL);
